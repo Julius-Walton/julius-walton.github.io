@@ -1,0 +1,24 @@
+---
+layout: posts
+title: "Day 1 - Introduction and Github ReadMe"
+date: 2022-02-19
+catagories: github
+---
+
+## Introduction 
+Hi, I'm Julius Walton and I'm a software engineer that graudated from the College of Charleston in May of 2021. I've decided to make this blog in part to help me document my commitment to take on the 100 days of coding challange. My goal for this is to improve my knowledge of data structures and algorithms. Specifically technical questions that someone might find on leet code or hackerrank.
+
+I plan on updating this blog daily so that my progess can be tracked and documented. Without further delay, time to skip this boring introduction and move on to the fun software developement. Cheers!🎉🎉
+
+
+## GitHub ReadMe
+After being out of practice when it comes to GitHub, I decided to take a look at my old GitHub account. And well - it was a mess. There were old repositories from school that didn't amount to anything meanful as they were only created for minor homework assignments. It was time for a major clean up. After keeping the repositories that are meaningful to me in terms of my software development journey, I thought it was time to spruce up my profile with the GitHub ReadMe feature.
+
+To be completely honest, I used a generator to create my ReadMe, although I did run through the code and edit a few things to make it more personal. For example, the cat  typing gif. I think this was a good way to jolt my memory on HTML and just the general layout of GitHub.
+
+[Anyways, here's the link to the ReadMe code if you want to check it out](https://github.com/Julius-Walton/Julius-Walton/edit/main/README.md)
+
+[Aswell as the link to my personal GitHub account where you can see me fill out that nice green bar every day for the next 99 days](https://github.com/Julius-Walton)
+
+## A little extra - Linked List
+Although I won't discuss it here, I did do a few coding problems on linked list. I'm excited to share what I've learned. Especially creating an LRU Cache (Least Recently Used) using a combination of a hashtable and a doubly linked list. But that will come in a later date.
