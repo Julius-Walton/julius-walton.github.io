@@ -1,5 +1,5 @@
 ---
-layout: posts
+layout: post
 title: "Day 1 - Introduction and Github ReadMe"
 date: 2022-02-19
 catagories: github
