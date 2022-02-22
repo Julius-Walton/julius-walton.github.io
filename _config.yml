@@ -24,6 +24,19 @@ author: Julius Walton
 
 navbar-links:
   About Me: "aboutme"
+
+navbar-col: "#EAEAEA"
+navbar-text-col: "#404040"
+navbar-border-col: "#DDDDDD"
+page-col: "#FFFFFF"
+text-col: "#404040"
+link-col: "#008AFF"
+hover-col: "#0085A1"
+footer-col: "#EAEAEA"
+footer-text-col: "#777777"
+footer-link-col: "#404040"
+footer-hover-col: "#0085A1"
+
 description: >- # this means to ignore newlines until "baseurl:"
   Journey to completing 100 days of coding. A place where I will
   be sharing my experience and details of the challange every day.
@@ -31,10 +44,34 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username: julius-walton
 
+timezone: "America/Toronto"
+markdown: kramdown
+highlighter: rouge
+permalink: /:year-:month-:day-:title/
+paginate: 5
+
+kramdown:
+  input: GFM
+
+# Default YAML values (more information on Jekyll's site)
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      comments: true # add comments to all blog posts
+      social-share: true # add social media sharing buttons to all blog posts
+  - scope:
+      path: "" # any file that's not a post will be a "page" layout by default
+    values:
+      layout: "page"
+
 # Build settings
 #theme: minima
 remote_theme: daattali/beautiful-jekyll
 plugins:
+  - jekyll-paginate
   - jekyll-feed
   - jekyll-remote-theme
 # Exclude from processing.

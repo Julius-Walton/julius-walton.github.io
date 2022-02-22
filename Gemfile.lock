@@ -238,7 +238,7 @@ GEM
       jekyll-seo-tag (~> 2.1)
     minitest (5.15.0)
     multipart-post (2.1.1)
-    nokogiri (1.13.1-x64-mingw32)
+    nokogiri (1.13.3-x64-mingw32)
       racc (~> 1.4)
     octokit (4.22.0)
       faraday (>= 0.9)
@@ -290,6 +290,7 @@ DEPENDENCIES
   beautiful-jekyll-theme (= 5.0.0)
   github-pages
   jekyll-feed (~> 0.12)
+  jekyll-paginate (~> 1.1)
   jekyll-remote-theme
   tzinfo (~> 1.2)
   tzinfo-data

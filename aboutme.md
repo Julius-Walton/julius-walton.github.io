@@ -14,4 +14,4 @@ A bit about myself
 * Ask me about juggling and yo-yos 🪀
 * I have a yorkie poodle mix. Her name is Aki which means autum in Japanese
 
-![Aki](assets/img/Aki%20Photo%20-%20Julius%20Walton.jpg)
+![Aki](/julius-walton.github.io/assets/img/Aki%20Photo%20-%20Julius%20Walton.jpg)
