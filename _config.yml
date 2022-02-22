@@ -23,6 +23,7 @@ email: juliuswalton7901@gmail.com
 author: Julius Walton
 
 navbar-links:
+  Home: "/"
   About Me: "aboutme"
 
 navbar-col: "#EAEAEA"
@@ -36,6 +37,9 @@ footer-col: "#EAEAEA"
 footer-text-col: "#777777"
 footer-link-col: "#404040"
 footer-hover-col: "#0085A1"
+
+# Ruby Date Format to show dates of posts
+date_format: "%B %-d, %Y"
 
 description: >- # this means to ignore newlines until "baseurl:"
   Journey to completing 100 days of coding. A place where I will
