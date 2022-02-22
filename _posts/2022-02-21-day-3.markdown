@@ -3,6 +3,7 @@ layout: post
 title: "Day 3 - Linked List Implementation"
 date: 2022-02-21
 categories: linked lists
+tags: [Linked Lists, JavaScript]
 ---
 ## Introduction
 I decided to start my journey with data structures and algorithms with Linked Lists. Why? Because linked lists have always been a thorn in my side. One of my weak spots when it comes to programming. So for the next few days, I want to focus on problems with linked lists and understand how to solve problems incorporating linked lists.

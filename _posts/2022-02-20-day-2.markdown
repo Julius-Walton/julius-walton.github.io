@@ -3,6 +3,7 @@ layout: post
 title: "Day 2 - Jekyll blog"
 date: 2022-02-20
 categories: jekyll
+tags: [GitHub, Jekyll]
 ---
 
 ## Which came first, the blog or the post?

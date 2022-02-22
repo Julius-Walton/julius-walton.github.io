@@ -3,6 +3,7 @@ layout: post
 title: "Day 4 - Linked List Problems"
 date: 2022-02-22
 categories: linked lists
+tags: [Linked Lists, JavaScript]
 ---
 
 ## Introduction

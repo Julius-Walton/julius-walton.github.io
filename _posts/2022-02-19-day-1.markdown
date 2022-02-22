@@ -3,6 +3,7 @@ layout: post
 title: "Day 1 - Introduction and Github ReadMe"
 date: 2022-02-19
 categories: github
+tags: [GitHub]
 ---
 
 ## Introduction
