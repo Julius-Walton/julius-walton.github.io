@@ -20,6 +20,10 @@
 
 title: 100 Days of Coding - Julius Walton
 email: juliuswalton7901@gmail.com
+author: Julius Walton
+
+navbar-links:
+  About Me: "aboutme"
 description: >- # this means to ignore newlines until "baseurl:"
   Journey to completing 100 days of coding. A place where I will
   be sharing my experience and details of the challange every day.
