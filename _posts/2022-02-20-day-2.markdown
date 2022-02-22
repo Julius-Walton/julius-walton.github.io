@@ -2,12 +2,12 @@
 layout: post
 title: "Day 2 - Jekyll blog"
 date: 2022-02-20
-catagories: jekyll
+categories: jekyll
 ---
 
-## Which came first? The blog or the first post?
-The correct answer is the first post. Yeah, it's a bit backwards but I decided to make this blog after my first day of the challange because I wanted somewhere to document my journey - oops. That may be poor planning on my part, but we are here and we are going to keep going.
+## Which came first, the blog or the post?
+The correct answer is the first post. It's a bit backward, but I decided to make this blog after my first day of the challenge because I wanted somewhere to document my journey - oops. That's poor planning on my part, but I'm moving forward and learning.
 
-For this blog I used jekyll because I've used it before and honestly it's a super easy way to create websites like a blog in no time. As for hosting, I'm hoping on hosting this on GitHub with my free GitHub site. So if you're seeing this then I guess it worked!! Oh, before I forget, the theme I used is the minimal mistakes theme. I do enjoy my ✨ minimalism ✨ There's still much work that can be done with this blog, but I think this is a great starting point.
+For this blog, I used Jekyll because I've used it before, and it's a super-easy way to create websites like a blog in no time. As for hosting, I'm hosing this on GitHub with my free GitHub site. Before I forget, the theme I used for the website is beautiful Jekyll. There's still much work to do for this blog, but I think this is a great starting point.
 
-Anyways, I'll keep this update short as I don't have much else I did today. Looking forward to posting about Linked List tomorrow. Cheers!
+Anyways, I'll keep this update short as I don't have much else I did today. I'm looking forward to posting about Linked List tomorrow. Cheers!

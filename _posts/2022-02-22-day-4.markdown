@@ -1,0 +1,299 @@
+---
+layout: post
+title: "Day 4 - Linked List Problems"
+date: 2022-02-22
+categories: linked lists
+---
+
+## Introduction
+Today I want to cover some questions I did on linked lists. I won't cover every problem that I have done, but I will go over the more interesting questions. This post will be lengthy, so let's get right into the problems.
+
+Here are the problems that I will be covering
+1. Removing nth Node From the End of a Linked List
+2. Finding a Loop in a Linked List
+3. Reverse a Linked List
+4. Least Recently Used Cache
+
+## Removing nth Node From The End of a Linked List
+For this problem, we were given an integer n as our input and the head of a singly linked list. Our task is to remove the nth integer from the end of the list.
+
+The trick to this problem is that it is a **singly linked list**, so we can't start at the tail and work our way n nodes back. We also cannot index that position directly since that isn't possible for a linked list.
+
+The key to this problem is creating two pointers n distance apart. Then after we have created that distance, we slide both pointers until we reach null with the pointer in the lead.
+
+Here is the solution to the problem.
+
+```js
+
+function removeNthNodeFromEnd(head, n){
+    let leadPointer = head;
+    let followPointer = head;
+
+    for(let i = 0; i < n; i++){
+        leadPointer = leadPointer.next;
+    }
+
+    if(leadPointer === null){           
+        head.value = head.next.value;
+        head.next = head.next.next;
+        return;
+    }
+
+    while(leadPointer.next !== null){
+        leadPointer = leadPointer.next;
+        followPointer = followPointer.next;
+    }
+
+    followPointer.next = followPointer.next.next; //Removes the nth node from the end
+}
+
+```
+
+A key takeaway from this problem is using two pointers to go through a linked list. This is common in many questions and is a very important technique to consider when using linked lists.
+
+## Finding a Loop in a Linked List
+This problem gives us the head of a linked list containing a loop. To solve this problem, we must return the node that is the origin of the loop.
+
+Sample Input
+```
+// the head node 0
+0 -> 1 -> 2 -> 3 -> 4 -> 5
+               ^         v
+               8 <- 7 <- 6
+
+```
+
+Sample Output
+
+```
+// the node with the loop origin 3
+3 -> 4 -> 5
+^         v
+8 <- 7 <- 6
+
+```
+
+As mentioned in the previous problem, we need to use two pointers to solve this question. This question also requires a bit of math to solve which makes it difficult.
+
+For our approach, we are going to have a fast and slow pointer. The fast pointer will be traveling twice as fast as our slow pointer. Let's also define other variables. 
+
+```
+Let D be the distance a node has traveled to get to the origin of the loop.
+
+Let L be the distance a node has traveled once it has entered the loop.
+
+Let N be the node at the origin of the loop.
+```
+Since there is a loop, we know that the two pointers will land on the same node. We also know that our fast pointer has traveled twice as much as our slow pointer. Thus, when the two pointers overlap we have this relation.
+
+```
+The total distance the slow pointer has traveled = D + P
+
+The total distance the fast pointer has traveled = 2D + 2P
+
+```
+
+Whenever these two pointers overlap we need to find out how far they are from the node N so we can return the correct answer. Using the relations we found above, we can calculate how far away the pointers are from node N.
+
+```
+2D + 2P - D - 2P = D
+
+```
+
+If this is confusing, [GeeksforGeeks has a great explanation on how this method works.](https://www.geeksforgeeks.org/how-does-floyds-slow-and-fast-pointers-approach-work/)
+
+Continuing, since the pointers are D length away from the origin, we reset one of the pointers and travel through the linked list until they overlap. Then we return the node which they overlap.
+
+```js
+
+function findLoop(head){
+    let slow = head.next;
+    let fast = head.next;
+
+    //find the first overlap
+    while(fast !== slow){
+        fast = fast.next.next;
+        slow = slow.next;
+    }
+
+    slow = head; //reset one node
+
+    //travel D distance with both nodes
+    while(fast !== slow){
+        fast = fast.next;
+        slow = slow.next;
+    }
+
+    return slow;
+}
+
+```
+
+## Reverse Linked List
+I like this question a lot. Reversing a linked list is another technique that is used when solving other problems with a linked list. This question is also more difficult than it seems and tests the ability to change the node's pointers without getting confused. There won't be a detailed analysis on this question because I think the code is fairly simple to read, but getting to the solution is difficult the first time. 
+
+### A diagram explaining the process
+
+![](https://i.stack.imgur.com/KndQA.jpg)
+
+
+### The solution for the problem
+```js
+
+function reverse(head){
+    let previousNode = null;
+    let currentNode = head;
+    
+    while(currentNode !== null){
+        const nextNode = currentNode.next;
+        currentNode.next = previousNode;
+        previousNode = currentNode;
+        currentNode = nextNode;
+    }
+
+    return previousNode;
+}
+
+```
+
+## Least Recently Used (LRU) Cache
+The last problem I want to cover for a linked list is creating a least recently used cache. We are going to have three methods to implement this problem.
+
+1. inserting key-value pairs with the insertKeyValuePair method
+2. retrieving a key's value pairs with the getValueFromKey method
+3. retrieving the **most recently used** inserted or retrieved key with the getMostRecentKey method
+
+We also need to keep in mind that our cache will have a maxSize variable. This means that if we are inserting a key-value pair into a full cache, we need to remove the least recently used key-value pair.
+
+To solve this problem in the most efficient way possible, we need to combine both a hash table and a doubly linked list. The hash table will allow us to get the key-value pairs in O(1) time. On the other hand, the linked list will allow us to keep track of the order that the nodes that have been used. 
+
+To explain further, whenever we index a key in the has table, it will point us to a node in our linked list. From there we can get the value of the node and tell if it is either the most recently used node or the least recently used node. We will keep the least recently used node as the tail of the list and the most recently used node as the head of the list.
+
+```js
+class LRUCache{
+    constructor(maxSize){
+        this.cache = {}
+        this.maxSize = maxSize || 1;
+        this.currentSize = 0;
+        this.mostRecentList = new DoublyLinkedList();
+    }
+
+    insertKeyValuePair(key, value){
+
+        /**
+         * if the key is in the cache then we update the value at the key
+         * if the key is not in the cache, create a new node at that key
+         * however, if the size of the cache is at the max size we need to
+         * remove the least recent key. if it is not at the max size we need
+         * to increment the size of the cache
+        */
+        if(!(key in this.cache)){
+            if(this.currentSize === this.maxSize){
+                this.removeLeastRecentPair(); //helper method
+            } else {
+                this.currentSize++;
+            }
+            this.cache[key] = new Node(key, value);
+        } else {
+            this.updateKey(key, value);//helper method
+        }
+    }
+
+    getValueFromKey(key){
+        if(!(key in this.cahce))return null;
+
+        //operations on a key-value pair move it to the most recent spot
+        this.updateMostRecent(this.cache[key]); //helper moethod
+        return this.cache[key].value;
+    }
+
+    getMostRecentKey(){
+        if(!this.mostRecentList.head) return;
+
+        return this.mostRecentList.head.key;
+    }
+
+
+    removeLeastRecentPair(){
+        const keyToRemove = this.mostRecentList.tail.key;
+        this.mostRecentList.removeTail();
+        delete this.cache[keyToRemove];
+    }
+
+    updateKey(key, value){
+        if(!(key in this.cahce)){
+            throw new Error("This key is not in the cache!")
+        }
+        this.cache[key].value = value;
+    }
+
+    updateMostRecent(node){
+        this.mostRecentList.setHead(node);
+    }
+}
+
+class DoublyLinkedList{
+    constructor(){
+        this.head = null;
+        this.tail = null;
+    }
+
+    setHead(node){
+        if(this.head === node){
+            return;
+        }else if(this.head === null){
+            this.head = node;
+            this.tail = node;
+        } else if(this.head === this.tail){
+            this.tail.prev = node;
+            this.head = node;
+            this.head.next = this.tail;
+        } else {
+            if(this.tail === node){
+                this.removeTail();
+            }
+            node.removeBindings();
+            this.head.prev = node;
+            node.next = this.head;
+            this.head = node;
+        }
+    }
+
+    removeTail(){
+        if(this.tail === null)return;
+
+        if(this.tail === this.head){
+            this.head = null;
+            this.tail = null;
+            return;
+        }
+
+        this.tail = this.tail.prev;
+        this.tail.next = null;
+    }
+}
+class Node{
+    constructor(key, value){
+        this.key = key;
+        this.value = value;
+        this.prev = null;
+        this.next = null;
+    }
+
+    removeBindings(){
+        if(this.prev !== null){
+            this.prev.next = this.next;
+        }
+
+        if(this.next !== null){
+            this.next.prev = this.prev;
+        }
+
+        this.prev = null;
+        this.next = null;
+    }
+}
+```
+
+## Conclusion
+After doing 13 problems on linked lists in the past few days, I feel like I have a much better understanding of them. I have slowly turned a weakness of mine into something I fear less and am excited to learn more about. I think in the following days I will work on stacks. They are also a big struggle for me. Hopefully, I will feel the same about stacks as I do now with linked list once I've practiced. Cheers!!
