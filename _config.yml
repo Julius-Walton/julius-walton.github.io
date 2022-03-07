@@ -22,9 +22,13 @@ title: 100 Days of Coding - Julius Walton
 email: juliuswalton7901@gmail.com
 author: Julius Walton
 
+avatar: "assets/img/avatar.png"
+round-avatar: true
+
 navbar-links:
   Home: "/"
   About Me: "aboutme"
+  GitHub: "https://github.com/Julius-Walton"
 
 navbar-col: "#EAEAEA"
 navbar-text-col: "#404040"
