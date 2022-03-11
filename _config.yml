@@ -97,6 +97,10 @@ defaults:
       path: "assets/img"
     values:
       image: true
+  - scope:
+      path: "assets/videos"
+    values:
+      image: true
 
 # Build settings
 #theme: minima
