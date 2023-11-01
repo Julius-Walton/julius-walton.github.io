@@ -4,7 +4,9 @@ title: "About Me"
 subtitle: "Hello 👋 I'm Julius Walton"
 ---
 
-Welcome! I decided to make this blog to document my progress learning about data structures and algorithms as I take on the 100 days of code challenge. 
+Welcome! This blog was initially made to help me study data structures and algorithms while I searched for my
+first full-time software engineering job. It now serves as a place for me to post my findings and share my knowledge throughout
+my engineering career!
 
 A bit about myself
 * I'm a software engineer that graduated from the College of Charleston in 2021
