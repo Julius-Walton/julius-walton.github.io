@@ -28,7 +28,7 @@ round-avatar: true
 navbar-links:
   Home: "/"
   About Me: "aboutme"
-  GitHub: "https://github.com/Julius-Walton"
+  GitHub: "https://github.com/juliuswalton"
 
 navbar-col: "#EAEAEA"
 navbar-text-col: "#404040"
@@ -48,7 +48,7 @@ date_format: "%B %-d, %Y"
 description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-github_username: julius-walton
+github_username: juliuswalton
 
 # Select which social network share links to show in posts
 share-links-active:
